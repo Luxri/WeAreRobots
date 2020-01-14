@@ -3,6 +3,7 @@ public class main {
     public class World implements Runnable {
 
         private World w;
+        
 
         public World(int w, int h) {
             this.w = new World(w, h);
