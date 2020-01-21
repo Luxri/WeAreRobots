@@ -1,24 +1,24 @@
-public class main {
+import javax.swing.JFrame;
+import java.awt.*;
 
-    public class World implements Runnable {
+public class main extends JFrame {
 
-        private World w;
-        
+    public main() {
 
-        public World(int w, int h) {
-            this.w = new World(w, h);
-        }
+        setTitle("Project");
+        setSize(500, 400);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setResizable(false);
+        setVisible(true);
+        Panel panel = new Panel(); // Another class
+        add(panel);
 
-        private void draw(World w) {
-            for (int y = 0 ; y < w.getHeight() ; y++) {
-                String s = "";
-                for (int x = 0; x < w.getWidth(); x++) {
-                    s += (""+(w.getCellStatusAt(x,y)?"X":" "));
-        }
+    }
 
-        public static void main(String[] args) {
+    public static void main (String args []){
 
-        }
+        Window test = new main ();
     }
 
 }
