@@ -14,17 +14,14 @@ public class robot {
 
     public void setCol(String col) {
         this.col = col;
-        setColor(Color.RED);
     }
 
     private void setColor(Color red) {
     }
 
-    public robot(int height, int width) {
-        this.height = height;
-        this.width = width;
-        height = 70;
-        width = 45;
+    public robot(int x, int y) {
+        this.y = y;
+        this.x = x;
     }
 
     public int getX() {

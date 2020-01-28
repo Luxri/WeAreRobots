@@ -1,6 +1,9 @@
 import javax.swing.*;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
+import java.lang.ref.Cleaner;
 
 /**
  * This is a class
@@ -11,17 +14,18 @@ import java.awt.image.BufferStrategy;
 public class main extends Canvas implements Runnable{
     private String title = "We Are Robots";
     private JFrame frame;
-    private int fps = 30;
-    private int ups = 30;
+    private int fps = 1;
+    private int ups = 1;
     private boolean running = false;
     private Thread thread;
-    private Object robot;
+    private robot r;
 
     public main (int w, int h) {
         Dimension size = new Dimension(w, h);
         setPreferredSize(size);
         frame = new JFrame();
         frame.setTitle(title);
+        r = new robot(25, 25);
     }
 
     private synchronized void start() {
@@ -76,16 +80,36 @@ public class main extends Canvas implements Runnable{
         Graphics g = bs.getDrawGraphics();
         g.setColor(Color.BLUE);
         g.fillOval(200,200,50,50);
-        g.dispose();
+        g.setColor(Color.RED);
+        g.fillRect(r.getX(), r.getY(),25,35);
+        g.setColor(Color.WHITE);
+        g.fillRect(0, 0, 1920, 1080);
+        g.setColor(Color.BLUE);
+        g.fillOval(200,200,50,50);
+        g.setColor(Color.RED);
+        g.fillRect(r.getX(), r.getY(),25,35);
         bs.show();
     }
 
-    private void update() {
+    public void Move () {
+        r.getX();
+        r.getY();
+        if (760 < r.getX() && r.getX() < 800) {
+            r.setX(r.getX()-800);
+            r.setY(r.getY()-800);
+        } else if (r.getX() < 760) {
+            r.setX(r.getX()+40);
+            r.setY(r.getY()+40);
+        } else if (r.getX() < 200) {
 
+        }
+    }
+    private void update() {
+    Move();
     }
 
     public static void main(String[] args) {
-        main game = new main (800,600);
+        main game = new main (800,800);
         game.frame.add(game);
         game.frame.pack();
         game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
