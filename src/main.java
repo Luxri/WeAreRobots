@@ -1,9 +1,6 @@
 import javax.swing.*;
-import javax.swing.border.CompoundBorder;
-import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
-import java.lang.ref.Cleaner;
 import java.util.Random;
 
 /**
@@ -100,11 +97,20 @@ public class main extends Canvas implements Runnable{
   r.getX();
   r.getY();
      Random randomGeneratorX = new Random();
-     int randomIntX = randomGeneratorX.nextInt(50) + 1;
+     int randomIntX = randomGeneratorX.nextInt(10) + 1;
      Random randomGeneratorY = new Random();
-     int randomIntY = randomGeneratorY.nextInt(75) + 1;
+     int randomIntY = randomGeneratorY.nextInt(10) + 1;
      r.setX(r.getX()+randomIntX);
      r.setY(r.getY()+randomIntY);
+
+     if (r.getX() > 800) {
+         int randomNegativeX = randomGeneratorX.nextInt(10) + 1;
+         r.setX(800 - randomNegativeX);
+     } else if (r.getY() > 800) {
+         int randomNegativeY = randomGeneratorY.nextInt(10) + 1;
+         r.setY(800 - randomNegativeY);
+     }
+
      }
 
 
