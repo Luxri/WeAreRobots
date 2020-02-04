@@ -4,6 +4,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 import java.lang.ref.Cleaner;
+import java.util.Random;
 
 /**
  * This is a class
@@ -79,35 +80,35 @@ public class main extends Canvas implements Runnable{
    return;
   }
 
-  Graphics g = bs.getDrawGraphics();
-  g.setColor(Color.BLUE);
-  g.fillOval(200,200,50,50);
-  g.setColor(Color.RED);
-  g.fillRect(r.getX(), r.getY(),25,35);
-  g.setColor(Color.WHITE);
-  g.fillRect(0, 0, 1920, 1080);
-  g.setColor(Color.BLUE);
-  g.fillOval(200,200,50,50);
-  g.setColor(Color.GREEN);
-  g.fillRect(f.getX(), f.getY(), 15, 15);
-  g.setColor(Color.RED);
-  g.fillRect(r.getX(), r.getY(),25,35);
-  bs.show();
+     Graphics g = bs.getDrawGraphics();
+     g.setColor(Color.BLUE);
+     g.fillOval(200, 200, 50, 50);
+     g.setColor(Color.RED);
+     g.fillRect(r.getX(), r.getY(), 25, 35);
+     g.setColor(Color.WHITE);
+     g.fillRect(0, 0, 1920, 1080);
+     g.setColor(Color.BLUE);
+     g.fillOval(200, 200, 50, 50);
+     g.setColor(Color.GREEN);
+     g.fillRect(f.getX(), f.getY(), 15, 15);
+     g.setColor(Color.RED);
+     g.fillRect(r.getX(), r.getY(), 25, 35);
+     bs.show();
  }
 
  public void Move () {
   r.getX();
   r.getY();
-  if (760 < r.getX() && r.getX() < 800) {
-   r.setX(r.getX()-800);
-   r.setY(r.getY()-800);
-  } else if (r.getX() < 760) {
-   r.setX(r.getX()+40);
-   r.setY(r.getY()+40);
-  } else if (r.getX() < 200) {
+     Random randomGeneratorX = new Random();
+     int randomIntX = randomGeneratorX.nextInt(50) + 1;
+     Random randomGeneratorY = new Random();
+     int randomIntY = randomGeneratorY.nextInt(75) + 1;
+     r.setX(r.getX()+randomIntX);
+     r.setY(r.getY()+randomIntY);
+     }
 
-  }
- }
+
+
  private void update() {
   Move();
  }
